@@ -1,0 +1,30 @@
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(152,100,163);
+  
+  //boba cup with honeydew
+    fill(189,255,189)
+    rect(140, 140, 100, 200);
+  
+    // Lid 
+  fill(255); 
+  arc(190, 140, 100, 50, PI, TWO_PI); // Half-circle lid
+  
+  //Straw
+ fill(22,15,4)
+    rect(185, 70, 10, 200);
+  
+  //Boba Pearls
+  fill(49,34,9)
+ circle(160, 290, 25);
+  
+    fill(49,34,9)
+ circle(195, 320, 25);
+  
+    fill(49,34,9)
+ circle(220, 290, 25);
+  
+}

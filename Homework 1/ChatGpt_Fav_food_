@@ -1,0 +1,47 @@
+function setup() {
+  createCanvas(400, 400);
+  noLoop(); // Stops draw loop
+}
+
+function draw() {
+  background(255);
+
+  // Draw plate
+  fill(240);
+  ellipse(200, 200, 300, 300);
+
+  // Draw pizza base
+  fill(255, 204, 102);
+  ellipse(200, 200, 250, 250);
+
+  // Draw crust
+  fill(204, 102, 0);
+  ellipse(200, 200, 250, 250);
+  fill(255, 204, 102);
+  ellipse(200, 200, 200, 200);
+
+  // Draw pizza sauce
+  fill(255, 51, 51);
+  ellipse(200, 200, 190, 190);
+
+  // Draw cheese
+  fill(255, 223, 0);
+  ellipse(200, 200, 180, 180);
+
+  // Add toppings
+  drawPepperoni(200, 150);
+  drawPepperoni(250, 200);
+  drawPepperoni(150, 200);
+  drawPepperoni(180, 250);
+  drawPepperoni(220, 250);
+
+  // Add decoration
+  fill(0, 128, 0);
+  noStroke();
+  ellipse(200, 200, 10, 5); // Basil leaf
+}
+
+function drawPepperoni(x, y) {
+  fill(153, 0, 0);
+  ellipse(x, y, 30, 30);
+}
