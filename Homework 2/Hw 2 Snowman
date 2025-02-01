@@ -25,7 +25,7 @@ function draw() {
   fill('#2196F3');
   text('Ella Rightnowar', 250, 370);
 
-  // Add a new snowflake at the top every 10 frames
+  // Add a new snowflake
   if (frameCount % 10 === 0) {  
     snowflakes.push({ x: random(width), y: 0, size: random(3, 8) });
   }
