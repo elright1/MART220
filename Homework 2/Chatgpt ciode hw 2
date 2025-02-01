@@ -1,0 +1,62 @@
+let shapes = [];
+let title = "Dynamic Motion Art";
+let myName = "Your Name";
+
+function setup() {
+  createCanvas(600, 400);
+  
+  // Create initial shapes
+  for (let i = 0; i < 5; i++) {
+    shapes.push(new MovingShape(random(width), random(height)));
+  }
+}
+
+function draw() {
+  background(30, 40, 50);
+  
+  // Display title and name
+  fill(255);
+  textSize(16);
+  text(title, 10, 20);
+  text(myName, width - textWidth(myName) - 10, height - 10);
+
+  // Update and display shapes
+  for (let shape of shapes) {
+    shape.update();
+    shape.display();
+  }
+}
+
+// Mouse interaction: Add a new shape
+function mousePressed() {
+  shapes.push(new MovingShape(mouseX, mouseY));
+}
+
+// Keyboard interaction: Clear shapes on 'C' press
+function keyPressed() {
+  if (key === 'C' || key === 'c') {
+    shapes = [];
+  }
+}
+
+// Moving shape class
+class MovingShape {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = random(20, 50);
+    this.color = color(random(255), random(255), random(255));
+  }
+
+  update() {
+    if (frameCount % 60 === 0) { // Move every second
+      this.x = random(width);
+      this.y = random(height);
+    }
+  }
+
+  display() {
+    fill(this.color);
+    ellipse(this.x, this.y, this.size);
+  }
+}
