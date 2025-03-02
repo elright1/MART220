@@ -1,0 +1,82 @@
+let Honeydew;
+let Animated;
+let ChatGpt;
+let Font1;
+
+let timer = 10; // Timer countdown
+let startTime;
+let xPos = 300; // Initial X position for ChatGpt image
+let yPos = 300; // Initial Y position for ChatGpt image
+
+function preload() {
+  Honeydew = loadImage('Honeydewboba.jpg');
+  Animated = loadImage('Bobaanimated.webp');
+  ChatGpt = loadImage('ChatGptBoba.webp');
+  Font1 = loadFont("HappyFont.ttf");
+}
+
+function setup() {
+  createCanvas(400, 400);
+  startTime = millis(); // Start the timer when the program starts
+}
+
+function draw() {
+  background(152, 100, 163);
+  
+  // Boba cup with honeydew
+  fill(189, 255, 189);
+  rect(140, 140, 100, 200);
+
+  // Lid 
+  fill(255);
+  arc(190, 140, 100, 50, PI, TWO_PI); // Half-circle lid
+  
+  // Straw
+  fill(22, 15, 4);
+  rect(185, 70, 10, 200);
+
+  // Boba Pearls
+  fill(49, 34, 9);
+  circle(160, 290, 25);
+  fill(49, 34, 9);
+  circle(195, 320, 25);
+  fill(49, 34, 9);
+  circle(220, 290, 25);
+
+ 
+  textSize(30);
+  fill('#2C194D');
+  text('Boba', 230, 30);
+
+  
+  textSize(20);
+  textFont(Font1);
+  fill('#2C194D');
+  text('Ella Rightnowar', 210, 370);
+
+  // Display images
+  image(Honeydew, 0, 100, 100, 100);
+  image(Animated, 300, 100, 100, 100);
+  image(ChatGpt, xPos, yPos, 100, 100);
+
+  // Timer logic
+  let elapsedTime = (millis() - startTime) / 1000; // Time passed in seconds
+  let remainingTime = timer - int(elapsedTime);
+  
+  // Display the countdown
+  textSize(32);
+  textAlign(RIGHT, TOP);
+  text("Time: " + max(0, remainingTime), width - 20, 20); // Prevent negative values
+
+  // If the timer reaches zero, move the ChatGpt image and reset the timer
+  if (remainingTime <= 0) {
+    moveChatGpt();
+    startTime = millis(); // Reset the timer start time
+  }
+}
+
+function moveChatGpt() {
+  // Move ChatGpt image to a random position
+  xPos = random(100, width - 100);
+  yPos = random(100, height - 100);
+}
